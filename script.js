@@ -141,6 +141,3 @@ function typeWriter() {
     typing();
 
 }
-
-    requestAnimationFrame(typing);
-}
