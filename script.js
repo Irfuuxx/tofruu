@@ -113,22 +113,34 @@ function createPetal(){
 function typeWriter() {
 
     let i = 0;
-    let lastTime = 0;
-    const speed = 18;
+    const speed = 16;
 
-    function typing(time) {
-
-        if (time - lastTime >= speed && i < fullLetter.length) {
-
-            letter.innerHTML += fullLetter.charAt(i);
-            i++;
-            lastTime = time;
-        }
+    function typing() {
 
         if (i < fullLetter.length) {
-            requestAnimationFrame(typing);
+
+            letter.innerHTML += fullLetter.slice(i, i + 4);
+            i += 4;
+
+            setTimeout(typing, speed);
+
+        } else {
+
+            const footer = document.querySelector("footer");
+
+            footer.style.display = "block";
+
+            setTimeout(function () {
+                footer.style.opacity = "1";
+            }, 50);
+
         }
+
     }
+
+    typing();
+
+}
 
     requestAnimationFrame(typing);
 }
