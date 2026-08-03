@@ -1,0 +1,182 @@
+body{
+    margin: 0;
+    padding: 0;
+
+    background-image: url("image 123423.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: 55px;
+    color: #9B8296;
+    text-align: center;
+    margin-bottom: 30px;
+
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+p {
+    font-family: "Playfair Display", serif;
+    font-size: 18px;      /* Smaller paragraph */
+    line-height: 1.8;     /* More space between lines */
+    color:  #EFECE6;
+    font-style: italic;
+    text-align: center;   /* Center the text */
+    max-width: 900px;     /* Don't let it stretch across the whole page */
+    margin: 0 auto;       /* Centers the paragraph block */
+}
+.envelope{
+
+    font-size:120px;
+
+    text-align:center;
+
+    margin:30px 0;
+
+    cursor:pointer;
+
+    transition: all 1.5s ease;
+
+    opacity:1;
+
+}
+.hide{
+    opacity:0;
+    transform:scale(0.7) rotate(-10deg);
+}
+.envelope:hover{
+
+    transform:scale(1.15);
+
+}
+.love-letter-body{
+    opacity:0;
+    transform:translateY(80px);
+
+    margin-top:180px;
+
+    transition: opacity 1.8s ease, transform 1.8s ease;
+}
+.show{
+    opacity:1;
+    transform:translateY(0);
+    transition: opacity 1.8s ease, transform 1.8s ease;
+}
+
+.fade-out{
+    opacity: 0;
+    transform: translateY(-20px);
+}
+.fade-in{
+    opacity:1;
+    transform:translateY(0);
+}
+/* 📱 Mobile Phones */
+
+@media (max-width: 768px){
+
+    body{
+        padding:20px;
+    }
+
+    h1{
+        font-size:38px;
+    }
+
+    p{
+        font-size:16px;
+        line-height:1.7;
+        max-width:100%;
+    }
+
+    .envelope{
+        font-size:90px;
+    }
+
+}
+.welcome-screen{
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1000;
+}
+.move-top{
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    transition: all 1.5s ease;
+}
+.heart{
+    position: fixed;
+    font-size: 28px;
+    pointer-events: none;
+    animation: heartPop var(--duration) ease-out forwards;
+    z-index: 9999;
+}
+
+@keyframes heartPop{
+
+    0%{
+        opacity:1;
+        transform:translate(0,0) scale(0.5);
+    }
+
+    100%{
+        opacity:0;
+        transform:translate(var(--x), var(--y)) scale(1.8);
+    }
+
+}
+.petal{
+    position: fixed;
+    top: -50px;
+
+    pointer-events: none;
+
+    z-index: 999;
+
+    animation: sakuraFall var(--duration) linear forwards;
+
+    will-change: transform;
+}
+@keyframes sakuraFall{
+
+    0%{
+        transform: translate(0, -50px) rotate(0deg);
+        opacity:1;
+    }
+
+    25%{
+        transform: translate(20px, 25vh) rotate(90deg);
+    }
+
+    50%{
+        transform: translate(-20px, 50vh) rotate(180deg);
+    }
+
+    75%{
+        transform: translate(25px, 75vh) rotate(270deg);
+    }
+
+    100%{
+        transform: translate(-15px, 110vh) rotate(360deg);
+        opacity:0;
+    }
+
+}
